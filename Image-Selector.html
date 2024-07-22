@@ -30,7 +30,7 @@
   </head>
   <body>
     <div id="imageSelector">
-      <select id="imageDropdown">
+      <select id="imageDropdown" onchange="loadImage()">
         <option value="FRONT-EXTERIOR-1.jpg">Front Exterior View 1</option>
         <option value="FRONT-EXTERIOR-2.jpg">Front Exterior View 2</option>
         <option value="FRONT-EXTERIOR-3.jpg">Front Exterior View 3</option>
@@ -63,12 +63,11 @@
         <option value="2_ROOF-1.jpg">Roof View 1</option>
         <option value="2_ROOF-2.jpg">Roof View 2</option>
       </select>
-      <button onclick="loadImage()">VIEW</button>
     </div>
     <a-scene>
       <a-camera
         position="0 1.6 0"
-        fov="80"
+        fov="90"
         look-controls="reverseMouseDrag: true; touchEnabled: true;"
       ></a-camera>
       <a-sky id="skybox" src="" rotation="0 40 0"></a-sky>
@@ -85,6 +84,11 @@
             selectedImage
         );
       }
+
+      // Load the default image on page load
+      window.onload = function () {
+        loadImage();
+      };
     </script>
   </body>
 </html>
